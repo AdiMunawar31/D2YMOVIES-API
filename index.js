@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const authRoute = require('./Routes/auth')
 const userRoute = require('./Routes/user')
 const movieRoute = require('./Routes/movie')
+const listRoute = require('./Routes/list')
 const connectDB = require('./Configs/init_db')
 
 dotenv.config()
@@ -28,6 +29,9 @@ app.use('/api/users', userRoute)
 
 /* Base Routing for Movie Route */
 app.use('/api/movies', movieRoute)
+
+/* Base Routing for List Route */
+app.use('/api/lists', listRoute)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => console.log(`Server Running in http://localhost:${PORT}`))
