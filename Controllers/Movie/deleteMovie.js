@@ -1,13 +1,11 @@
 const Movie = require("../../Models/Movie")
 
 module.exports = {
-    createMovie: async (req, res) => {
+    deleteMovie: async (req, res) => {
         if (req.user.isAdmin) {
-            const newMovie = new Movie(req.body)
-
             try {
-                const movie = await newMovie.save()
-                res.status(201).json(movie)
+                await Movie.findByIdAndDelete(req.params.id)
+                res.status(200).json("Movie Successfully Deleted!")
 
             } catch (err) {
                 res.status(500).json(err)

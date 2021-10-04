@@ -1,13 +1,14 @@
 const Movie = require("../../Models/Movie")
 
 module.exports = {
-    createMovie: async (req, res) => {
+    updateMovie: async (req, res) => {
         if (req.user.isAdmin) {
-            const newMovie = new Movie(req.body)
-
             try {
-                const movie = await newMovie.save()
-                res.status(201).json(movie)
+                const movie = await Movie.findByIdAndUpdate(req.params.id,
+                    { $set: req.body },
+                    { new: true }
+                )
+                res.status(200).json(movie)
 
             } catch (err) {
                 res.status(500).json(err)

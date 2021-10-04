@@ -4,4 +4,4 @@ const { getUsers } = require('./getUsers')
 const { statsUser } = require('./statsUser')
 const { updateUser } = require('./updateUser')
 
-export { deleteUser, getUserById, getUsers, statsUser, updateUser }
+module.exports = { deleteUser, getUserById, getUsers, statsUser, updateUser }

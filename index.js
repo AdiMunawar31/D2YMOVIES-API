@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const morgan = require('morgan')
 const authRoute = require('./Routes/auth')
 const userRoute = require('./Routes/user')
+const movieRoute = require('./Routes/movie')
 const connectDB = require('./Configs/init_db')
 
 dotenv.config()
@@ -19,11 +20,14 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-/* Base Routing to Authentication Route */
+/* Base Routing for Authentication Route */
 app.use('/api/auth', authRoute)
 
-/* Base Routing to User Route */
+/* Base Routing for User Route */
 app.use('/api/users', userRoute)
+
+/* Base Routing for Movie Route */
+app.use('/api/movies', movieRoute)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => console.log(`Server Running in http://localhost:${PORT}`))
