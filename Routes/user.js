@@ -1,10 +1,5 @@
-const { deleteUser } = require('../Controllers/User/deleteUser')
-const { getUserById } = require('../Controllers/User/getUserById')
-const { getUsers } = require('../Controllers/User/getUsers')
-const { statsUser } = require('../Controllers/User/statsUser')
-const { updateUser } = require('../Controllers/User/updateUser')
+const { getUsers, getUserById, updateUser, deleteUser, statsUser } = require('../Controllers/User')
 const verify = require('../Helpers/verifyToken')
-
 const router = require('express').Router()
 
 /* Get All User Route */
