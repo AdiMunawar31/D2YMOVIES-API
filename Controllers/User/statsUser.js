@@ -6,21 +6,6 @@ module.exports = {
 
         const lateYear = today.setFullYear(today.setFullYear() - 1)
 
-        const monthsArray = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "Oktober",
-            "November",
-            "December",
-        ]
-
         try {
 
             const data = await User.aggregate([
